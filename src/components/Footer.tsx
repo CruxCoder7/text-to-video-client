@@ -15,7 +15,7 @@ export default function Footer() {
           width={20}
           height={20}
           className="ml-1 -mt-[2px]"
-        ></Image>
+        />
       </p>
     </footer>
   )
