@@ -1,8 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    eslint: {
-        ignoreDuringBuilds: true
-    }
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  reactStrictMode: false,
 }
 
 module.exports = nextConfig

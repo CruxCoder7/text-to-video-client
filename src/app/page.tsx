@@ -50,11 +50,11 @@ export default function Home() {
     formData.append("file", file as Blob)
 
     try {
-      await fetch("http://localhost:5000/upload", {
+      await fetch("http://localhost:5000/upload/pdf", {
         method: "POST",
         body: formData,
       })
-      router.push("/input")
+      router.push("/result")
     } catch (error) {
       console.error("Error:", error)
     }
