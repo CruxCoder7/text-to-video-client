@@ -45,7 +45,7 @@ export default function ResultPage() {
   }, [])
 
   return (
-    <div className="w-full flex h-screen justify-center items-center">
+    <div className="w-full flex min-h-screen justify-center p-20 items-center">
       <div className="flex flex-col items-center justify-center">
         <ThreeDots
           height="120"

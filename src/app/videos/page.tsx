@@ -1,19 +1,43 @@
-import React, { useEffect, useState } from "react"
+import { Video } from "@/components/video"
 
-type Video = {
+type Video_video_url = {
+  english: string
+  tamil: string | null
+  hindi: string | null
+  telugu: string | null
+  malayalam: string | null
+}
+
+type Video_audio_url = Video_video_url
+
+type VideoType = {
   id: string
   content: string
   title: string
-  video_url: string
-  audio_url: string
+  video_url: Video_video_url
+  audio_url: Video_audio_url
   images: string[]
   enhanced_images: string[]
 }
 
-export default function VideosPage() {
-  const [video, setVideo] = useState<Video[]>([])
+export default async function Component() {
+  const response = await fetch("http://localhost:5000/videos", {
+    cache: "no-store",
+  })
 
-  useEffect(() => {}, [])
+  const video: VideoType[] = await response.json()
+  console.log(video.length)
 
-  return <div>VideosPage</div>
+  return (
+    <div className="flex flex-col items-center min-h-screen p-4">
+      {video.map((video) => (
+        <Video
+          summary={video.content}
+          title={video.title}
+          audio_url={video.audio_url.english}
+          video_url={video.video_url.english}
+        />
+      ))}
+    </div>
+  )
 }
