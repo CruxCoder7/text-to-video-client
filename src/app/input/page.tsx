@@ -6,7 +6,7 @@ import { useState } from "react"
 export default function TextInputPage() {
   const [textInput, setTextInput] = useState("")
 
-  const handleUpload = async (event: any) => {
+  const handleUpload = async (event: Event) => {
     event.preventDefault()
     try {
       await fetch("http://localhost:5000/upload/text", {
