@@ -1,6 +1,6 @@
 import { Video } from "@/components/video"
 
-type Video_video_url = {
+export type Video_video_url = {
   english: string
   tamil: string | null
   hindi: string | null
@@ -8,7 +8,7 @@ type Video_video_url = {
   malayalam: string | null
 }
 
-type Video_audio_url = Video_video_url
+export type Video_audio_url = Video_video_url
 
 type VideoType = {
   id: string
@@ -34,8 +34,8 @@ export default async function Component() {
         <Video
           summary={video.content}
           title={video.title}
-          audio_url={video.audio_url.english}
-          video_url={video.video_url.english}
+          audio_url={video.audio_url}
+          video_url={video.video_url}
         />
       ))}
     </div>
