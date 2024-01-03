@@ -1,5 +1,7 @@
+import { Poppins } from "next/font/google"
 import React from "react"
-import { PoppinsFont } from "../app/page"
+
+const PoppinsFont = Poppins({ weight: "400", subsets: ["devanagari"] })
 
 export default function UploadButton({
   handleUpload,
