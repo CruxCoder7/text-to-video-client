@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} min-h-screen w-full 
+        className={`${inter.className} min-h-screen w-full
         bg-gradient-to-b from-black via-slate-900 to-slate-700
         `}
       >

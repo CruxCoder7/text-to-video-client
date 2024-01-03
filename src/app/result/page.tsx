@@ -2,16 +2,20 @@
 import { useEffect, useState } from "react"
 
 import { ThreeDots } from "react-loader-spinner"
-import { PoppinsFont } from "../page"
+import { Poppins } from "next/font/google"
 
 export default function ResultPage() {
+  const PoppinsFont = Poppins({ weight: "400", subsets: ["devanagari"] })
+
   const [data, setData] = useState("")
   const [audio, setAudio] = useState("")
   const [video, setVideo] = useState("")
   const [summary, setSummary] = useState("")
 
   useEffect(() => {
-    const eventSource = new EventSource("http://localhost:5000/process/pdf")
+    const eventSource = new EventSource(
+      "http://test-akash.eastus.cloudapp.azure.com/api/process/pdf"
+    )
 
     eventSource.onmessage = (event) => {
       console.log(event.data)
@@ -46,7 +50,7 @@ export default function ResultPage() {
 
   return (
     <div className="w-full flex min-h-screen justify-center p-20 items-center">
-      <div className="flex flex-col items-center justify-center">
+      <div className="flex flex-col items-center justify-center ">
         <ThreeDots
           height="120"
           width="120"

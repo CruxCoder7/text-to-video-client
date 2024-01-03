@@ -23,7 +23,7 @@ const style = {
   p: 4,
 }
 
-export const PoppinsFont = Poppins({ weight: "400", subsets: ["devanagari"] })
+const PoppinsFont = Poppins({ weight: "400", subsets: ["devanagari"] })
 
 export default function Home() {
   const [open, setOpen] = useState(false)
@@ -50,10 +50,13 @@ export default function Home() {
     formData.append("file", file as Blob)
 
     try {
-      await fetch("http://localhost:5000/upload/pdf", {
-        method: "POST",
-        body: formData,
-      })
+      await fetch(
+        "http://test-akash.eastus.cloudapp.azure.com/api/upload/pdf",
+        {
+          method: "POST",
+          body: formData,
+        }
+      )
       router.push("/result")
     } catch (error) {
       console.error("Error:", error)

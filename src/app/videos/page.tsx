@@ -21,9 +21,12 @@ type VideoType = {
 }
 
 export default async function Component() {
-  const response = await fetch("http://localhost:5000/videos", {
-    cache: "no-store",
-  })
+  const response = await fetch(
+    "http://test-akash.eastus.cloudapp.azure.com/api/videos",
+    {
+      cache: "no-store",
+    }
+  )
 
   const video: VideoType[] = await response.json()
   console.log(video.length)
