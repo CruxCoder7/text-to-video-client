@@ -1,7 +1,7 @@
 "use client"
 import { CardTitle, CardHeader, CardContent, Card } from "@/components/ui/card"
-import { Video_audio_url, Video_video_url } from "../app/videos/page"
 import { useState } from "react"
+import { Video_audio_url, Video_video_url } from "../types/video"
 
 type VideoCard = {
   title: string

@@ -1,6 +1,6 @@
 import { Video } from "@/components/video"
 
-export type Video_video_url = {
+type Video_video_url = {
   english: string
   tamil: string | null
   hindi: string | null
@@ -8,7 +8,7 @@ export type Video_video_url = {
   malayalam: string | null
 }
 
-export type Video_audio_url = Video_video_url
+type Video_audio_url = Video_video_url
 
 type VideoType = {
   id: string
