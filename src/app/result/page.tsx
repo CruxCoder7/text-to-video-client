@@ -4,9 +4,9 @@ import { useEffect, useState } from "react"
 import { ThreeDots } from "react-loader-spinner"
 import { Poppins } from "next/font/google"
 
-export default function ResultPage() {
-  const PoppinsFont = Poppins({ weight: "400", subsets: ["devanagari"] })
+const PoppinsFont = Poppins({ weight: "400", subsets: ["devanagari"] })
 
+export default function ResultPage() {
   const [data, setData] = useState("")
   const [audio, setAudio] = useState("")
   const [video, setVideo] = useState("")
