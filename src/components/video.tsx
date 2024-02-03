@@ -54,9 +54,12 @@ export function Video(video: VideoCard) {
             }
             controls
           />
-          <button onClick={handleVersionChange}>
-            Click for {currLang === "English" ? "Tamil" : "English"} Version
-          </button>
+
+          {video.video_url.tamil && (
+            <button onClick={handleVersionChange}>
+              Click for {currLang === "English" ? "Tamil" : "English"} Version
+            </button>
+          )}
         </div>
       </CardContent>
     </Card>

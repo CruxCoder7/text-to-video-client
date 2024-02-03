@@ -1,67 +1,67 @@
-"use client"
-import Footer from "@/components/Footer"
-import Heading from "@/components/Heading"
-import UploadButton from "@/components/UploadButton"
-import Box from "@mui/material/Box"
-import Modal from "@mui/material/Modal"
-import Typography from "@mui/material/Typography"
-import { Poppins } from "next/font/google"
-import { useRouter } from "next/navigation"
-import { useState } from "react"
-import { useDropzone } from "react-dropzone"
-import { BsUpload } from "react-icons/bs"
-import { IoClose } from "react-icons/io5"
-import { MdInput } from "react-icons/md"
+'use client';
+import Footer from '@/components/Footer';
+import Heading from '@/components/Heading';
+import UploadButton from '@/components/UploadButton';
+import Box from '@mui/material/Box';
+import Modal from '@mui/material/Modal';
+import Typography from '@mui/material/Typography';
+import { Poppins } from 'next/font/google';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import { useDropzone } from 'react-dropzone';
+import { BsUpload } from 'react-icons/bs';
+import { IoClose } from 'react-icons/io5';
+import { MdInput } from 'react-icons/md';
 
 const style = {
-  position: "absolute" as "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
+  position: 'absolute' as 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
   width: 600,
   boxShadow: 24,
   p: 4,
-}
+};
 
-const PoppinsFont = Poppins({ weight: "400", subsets: ["devanagari"] })
+const PoppinsFont = Poppins({ weight: '400', subsets: ['devanagari'] });
 
 export default function Home() {
-  const [open, setOpen] = useState(false)
-  const [file, setFile] = useState<File | null>(null)
+  const [open, setOpen] = useState(false);
+  const [file, setFile] = useState<File | null>(null);
 
   const { acceptedFiles, getRootProps, getInputProps } = useDropzone({
     accept: {
-      "application/pdf": [".pdf"],
+      'application/pdf': ['.pdf'],
     },
     onDrop(acceptedFiles) {
-      setFile(acceptedFiles[0])
+      setFile(acceptedFiles[0]);
     },
-  })
+  });
 
   const files = acceptedFiles.map((file: File) => (
     <li key={file.name}>{file.name}</li>
-  ))
+  ));
 
-  const router = useRouter()
+  const router = useRouter();
 
   const handleUpload = async (event: any) => {
-    event.preventDefault()
-    const formData = new FormData()
-    formData.append("file", file as Blob)
+    event.preventDefault();
+    const formData = new FormData();
+    formData.append('file', file as Blob);
 
     try {
       await fetch(
-        "http://test-akash.eastus.cloudapp.azure.com/api/upload/pdf",
+        'http://test-akash.eastus.cloudapp.azure.com/api/upload/pdf',
         {
-          method: "POST",
+          method: 'POST',
           body: formData,
         }
-      )
-      router.push("/result")
+      );
+      router.push('/result');
     } catch (error) {
-      console.error("Error:", error)
+      console.error('Error:', error);
     }
-  }
+  };
 
   return (
     <main className="h-screen">
@@ -92,7 +92,7 @@ export default function Home() {
               </Typography>
               <div className="mt-4">
                 <div
-                  {...getRootProps({ className: "dropzone" })}
+                  {...getRootProps({ className: 'dropzone' })}
                   className="p-10 border border-dashed rounded-lg border-slate-500"
                 >
                   <input {...getInputProps()} />
@@ -123,7 +123,7 @@ export default function Home() {
           </Modal>
           <button
             className={`${PoppinsFont.className} bg-indigo-400 flex gap-4 text-white px-10 py-5 rounded-lg hover:opacity-80`}
-            onClick={() => router.push("/input")}
+            onClick={() => router.push('/input')}
           >
             Input Text
             <MdInput className="mt-[2px]" size={20} />
@@ -139,5 +139,5 @@ export default function Home() {
       </div>
       <Footer />
     </main>
-  )
+  );
 }
