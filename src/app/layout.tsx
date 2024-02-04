@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-css-tags */
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
@@ -16,6 +17,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <link href="./output.css" rel="stylesheet" />
+      </head>
       <body
         className={`${inter.className} min-h-screen w-full
         bg-gradient-to-b from-black via-slate-900 to-slate-700
